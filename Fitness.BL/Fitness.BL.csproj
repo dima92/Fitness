@@ -46,14 +46,20 @@
   <ItemGroup>
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\EatingController.cs" />
+    <Compile Include="Controller\ExerciseController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\Eating.cs" />
+    <Compile Include="Model\Exercise.cs" />
     <Compile Include="Model\Food.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
