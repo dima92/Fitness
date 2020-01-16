@@ -12,7 +12,6 @@ namespace Fitness.BL.Controller
     /// </summary>
     public class UserController : BaseController
     {
-        private const string USERS_FILE_NAME = "users.dat";
         /// <summary>
         /// Пользователь приложения
         /// </summary>
@@ -48,7 +47,7 @@ namespace Fitness.BL.Controller
         /// <returns></returns>
         private List<User> GetUsersData()
         {
-            return Load<List<User>>("users.dat") ?? new List<User>();
+            return Load<User>() ?? new List<User>();
         }
 
         public void SetNewUserData(string genderName, DateTime birthDate, double weight = 1, double height = 1)
@@ -65,7 +64,7 @@ namespace Fitness.BL.Controller
         /// </summary>
         public void Save()
         {
-            Save(USERS_FILE_NAME, Users);
+            Save(Users);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fitness.BL.Model
 {
@@ -9,18 +10,20 @@ namespace Fitness.BL.Model
     public class User
     {
         #region Свойства
+        public int Id { get; set; }
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
         /// <summary>
         /// Пол
         /// </summary>
-        public Gender Gender { get; set; }
+        public int GenderId { get; set; }
+        public virtual Gender Gender { get; set; }
         /// <summary>
         /// Дата рождения
         /// </summary>
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; } = DateTime.Now;
         /// <summary>
         /// Вес
         /// </summary>
@@ -29,6 +32,10 @@ namespace Fitness.BL.Model
         /// Рост
         /// </summary>
         public double Height { get; set; }
+
+        public virtual ICollection<Eating> Eatings { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
+
         public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
         #endregion
 
@@ -80,6 +87,8 @@ namespace Fitness.BL.Model
             Weight = weight;
             Height = height;
         }
+
+        public User() { }
 
         public User(string name)
         {

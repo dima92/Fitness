@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fitness.BL.Model
 {
@@ -8,14 +9,21 @@ namespace Fitness.BL.Model
     [Serializable]
     public class Gender
     {
+        public int Id { get; set; }
         /// <summary>
         /// Название
         /// </summary>
         public string Name { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+
         /// <summary>
         /// Создать новый пол
         /// </summary>
         /// <param name="name">Имя пола</param>
+
+        public Gender() { }
+
         public Gender(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
